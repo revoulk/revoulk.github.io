@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Infinity Looping SW Auto</title>
+</head>
+<body>
+  <h1>Infinity Looping Test Auto</h1>
+  <p>Buka tab baru di domain ini, langsung kena loop alert.</p>
+
+  <script>
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('Service worker registered'))
+        .catch(err => console.error('SW fail', err));
+    }
+
+    // Listener pesan dari SW
+    navigator.serviceWorker.addEventListener("message", e => {
+      if (e.data === "ALERT") {
+        (function loop(){
+          alert("Test");
+          setTimeout(loop, 0);
+        })();
+      }
+    });
+
+    // Begitu halaman load, kasih tahu SW kalau tab ini hidup
+    if (navigator.serviceWorker.controller) {
+      navigator.serviceWorker.controller.postMessage("NEW_TAB");
+    }
+  </script>
+</body>
+</html>
