@@ -6,15 +6,40 @@
     const log = msg => document.getElementById("log").textContent += "\n" + msg;
 
     try {
-        // Payload
-        const payload = "{unclosed_json:";
+        const payload = '{"unclosed_json":';
 
-        log("Payload: " + payload);
+        // === iOS (WKWebView handlers) ===
+        if (window.webkit?.messageHandlers?.ReactNativeWebView) {
+            log("Detected: ReactNativeWebView handler");
+            window.webkit.messageHandlers.ReactNativeWebView.postMessage(payload);
+            log("Payload sent to ReactNativeWebView: " + payload);
+        } else if (window.webkit?.messageHandlers?.NativeBridge) {
+            log("Detected: NativeBridge handler");
+            window.webkit.messageHandlers.NativeBridge.postMessage(payload);
+            log("Payload sent to NativeBridge: " + payload);
+        } else if (window.webkit?.messageHandlers?.AppInterface) {
+            log("Detected: AppInterface handler");
+            window.webkit.messageHandlers.AppInterface.postMessage(payload);
+            log("Payload sent to AppInterface: " + payload);
+        }
 
-        try {
-            JSON.parse(payload);
-        } catch (err) {
-            log("Error parsing JSON: " + err.message);
+        // === Android (WebView interfaces) ===
+        else if (window.Android?.postMessage) {
+            log("Detected: Android.postMessage");
+            window.Android.postMessage(payload);
+            log("Payload sent to Android.postMessage: " + payload);
+        } else if (window.JSBridge?.postMessage) {
+            log("Detected: JSBridge.postMessage");
+            window.JSBridge.postMessage(payload);
+            log("Payload sent to JSBridge.postMessage: " + payload);
+        } else if (window.AppInterface?.postMessage) {
+            log("Detected: AppInterface.postMessage");
+            window.AppInterface.postMessage(payload);
+            log("Payload sent to AppInterface.postMessage: " + payload);
+        }
+
+        else {
+            log("No known WebView handler detected.");
         }
     } catch (e) {
         log("JS Exception: " + e.message);
