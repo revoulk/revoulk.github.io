@@ -10,7 +10,7 @@
             log("ReactNativeWebView handler detected");
 
             // Malformed JSON
-            const payload = "{unclosed_json:";
+            const payload = '{"unclosed_json":';
 
             window.webkit.messageHandlers.ReactNativeWebView.postMessage(payload);
             log("Payload sent: " + payload);
