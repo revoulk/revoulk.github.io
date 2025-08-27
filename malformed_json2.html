@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<pre id="log"></pre>
+<script>
+    const log = msg => document.getElementById("log").textContent += "\n" + msg;
+
+    try {
+        // Payload
+        const payload = "{unclosed_json:";
+
+        log("Payload: " + payload);
+
+        try {
+            JSON.parse(payload);
+        } catch (err) {
+            log("Error parsing JSON: " + err.message);
+        }
+    } catch (e) {
+        log("JS Exception: " + e.message);
+    }
+</script>
+</body>
+</html>
