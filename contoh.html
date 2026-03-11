@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DApp Connect Demo</title>
+</head>
+<body>
+  <h2>Connect to Ethereum Wallet (MetaMask)</h2>
+  <button id="connectBtn">Connect Wallet</button>
+
+  <script>
+    async function connectWallet() {
+      if (typeof window.ethereum !== "undefined") {
+        try {
+          const accounts = await window.ethereum.request({
+            method: "eth_requestAccounts"
+          });
+
+          alert("✅ Connected account: " + accounts[0]);
+        } catch (err) {
+          console.error("❌ User rejected connection:", err);
+          alert("Connection rejected!");
+        }
+      } else {
+        alert("No Ethereum wallet detected. Please install MetaMask.");
+      }
+    }
+
+    document.getElementById("connectBtn").addEventListener("click", connectWallet);
+  </script>
+</body>
+</html>
