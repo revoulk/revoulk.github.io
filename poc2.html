@@ -2,7 +2,7 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const bridge = window.dsBridge || window._dsbridge;
+        const bridge = window._dsbridge;
         bridge.call("getUserAuth", {}, function(resp){
             alert("data:" + JSON.stringify(resp));
         });
