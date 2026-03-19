@@ -2,9 +2,11 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const bridge = window._dsbridge;
+        const bridge = window.dsBridge || window._dsbridge;
         bridge.call("getUserAuth", {}, function(resp){
+            const token = resp.data.authtoken;
             alert("data:" + JSON.stringify(resp));
+            alert("token:" + token);
         });
     });
 </script>
