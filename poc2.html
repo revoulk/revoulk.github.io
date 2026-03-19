@@ -1,18 +1,16 @@
+<script src="https://cdn.jsdelivr.net/npm/dsbridge@3.1.4/dist/dsbridge.min.js"></script>
+
 <script>
-function test() {
-    alert("script jalan");
+document.addEventListener("DOMContentLoaded",()=>{
+  const bridge = window.dsBridge || window._dsbridge;
 
-    if (typeof dsBridge !== "undefined") {
-        alert("dsBridge ADA");
+  if(!bridge || !bridge.call){
+    alert("bridge ga ada");
+    return;
+  }
 
-        dsBridge.call("getUserAuth", {}, function(resp) {
-            alert("dapet: " + JSON.stringify(resp));
-        });
-
-    } else {
-        alert("dsBridge ga ada");
-    }
-}
-
-setTimeout(test, 1000);
+  bridge.call("getUserAuth", {}, function(resp){
+      alert("dapet: " + JSON.stringify(resp));
+  });
+});
 </script>
