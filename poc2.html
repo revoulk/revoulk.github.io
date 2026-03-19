@@ -1,8 +1,10 @@
 <script src="https://cdn.jsdelivr.net/npm/dsbridge@3.1.4/dist/dsbridge.js"></script>
 
 <script>
-    const bridge = window.dsBridge || window._dsbridge;
-    bridge.call("getUserAuth", {}, function(resp){
-        alert("data:" + JSON.stringify(resp));
+    document.addEventListener("DOMContentLoaded", () => {
+        const bridge = window.dsBridge || window._dsbridge;
+        bridge.call("getUserAuth", {}, function(resp){
+            alert("data:" + JSON.stringify(resp));
+        });
     });
 </script>
