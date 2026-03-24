@@ -1,10 +1,8 @@
 <script>
-function spamDialogs() {
+function loopDialog() {
     confirm(window.location.origin);
-    setTimeout(() => {
-        alert('Test');
-        setTimeout(spamDialogs, 0);
-      }, 0);
-    }
-    window.onload = spamDialogs;
+    setTimeout(loopDialog, 10000);
+}
+
+window.onload = loopDialog;
 </script>
