@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+    function infiniteAlertLoop() {
+        alert(window.location.origin);
+        setTimeout(infiniteAlertLoop, 0);
+    };
+    window.onload = infiniteAlertLoop;
+</script>
+</html>
