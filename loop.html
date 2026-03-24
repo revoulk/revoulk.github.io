@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
 <script>
-    function infiniteAlertLoop() {
-        confirm(window.location.origin);
-        setTimeout(infiniteAlertLoop, 0);
-    };
-    window.onload = infiniteAlertLoop;
+function spamDialogs() {
+    confirm(window.location.origin);
+    setTimeout(() => {
+        alert('Test');
+        setTimeout(spamDialogs, 0);
+      }, 0);
+    }
+    window.onload = spamDialogs;
 </script>
-</html>
