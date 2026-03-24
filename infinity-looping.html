@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <script>
-    function infiniteAlertLoop() {
+    function loop() {
         alert('Test');
-        setTimeout(infiniteAlertLoop, 0);
+        setTimeout(loop, 0);
     };
-    window.onload = infiniteAlertLoop;
+    window.onload = loop;
 </script>
 </html>
