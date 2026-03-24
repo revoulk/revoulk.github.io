@@ -1,7 +1,7 @@
 <script>
-function loopDialog() {
-    confirm("looping");
-}
-
-window.onload = loopDialog;
+    function loop() {
+        confirm(window.location.origin);
+        setTimeout(loop, 0);
+    };
+    window.onload = loop;
 </script>
