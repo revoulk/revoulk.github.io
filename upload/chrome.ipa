@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>PayloadDescription</key>
+            <string>配置 Web Clip</string>
+            <key>PayloadDisplayName</key>
+            <string>我的快捷方式</string>
+            <key>PayloadIdentifier</key>
+            <string>com.example.webclip</string>
+            <key>PayloadType</key>
+            <string>com.apple.webClip.managed</string>
+            <key>PayloadUUID</key>
+            <string>12345678-1234-1234-1234-123456789012</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>URL</key>
+            <string>https://www.google.com</string>
+            <key>Label</key>
+            <string>Google</string>
+        </dict>
+    </array>
+    <key>PayloadDisplayName</key>
+    <string>测试描述文件</string>
+    <key>PayloadIdentifier</key>
+    <string>com.example.profile</string>
+    <key>PayloadRemovalDisallowed</key>
+    <false/>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>87654321-4321-4321-4321-210987654321</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>
