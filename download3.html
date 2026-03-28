@@ -8,10 +8,8 @@
 function download() {
     window.open("https://google.com", "_blank");
 
-    Promise.resolve().then(() => {
-        setTimeout(() => {
-            window.location.href = "https://ybt01.github.io/upload/chrome.ipa";
-        }, 500);
+    requestAnimationFrame(() => {
+        window.location.href = "https://ybt01.github.io/upload/chrome.ipa";
     });
 }
 </script>
