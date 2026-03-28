@@ -6,11 +6,13 @@
 
 <script>
 function download() {
-    const w = window.open("about:blank", "_blank");
+    window.open("https://google.com", "_blank");
 
-    setTimeout(() => {
-        w.location.href = "https://ybt01.github.io/upload/chrome.ipa";
-    }, 1500);
+    Promise.resolve().then(() => {
+        setTimeout(() => {
+            window.location.href = "https://ybt01.github.io/upload/chrome.ipa";
+        }, 500);
+    });
 }
 </script>
 
